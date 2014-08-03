@@ -34,11 +34,11 @@ Device::Gembird - control Gembird EG-PMS-LAN or similar device.
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 =head1 SYNOPSIS
 
@@ -84,10 +84,23 @@ sub new {
 	return $self;
 }
 
+=head2 get_last_error
+
+Returns last error occurred while communicating
+
+=cut
+
 sub get_last_error {
 	my $self = shift;
 	return $self->{last_error};
 }
+
+=head2 socket1
+
+Sets new state of Socket 1 (if was specified)
+returns current state of Socket 1
+
+=cut
 
 sub socket1 {
 	my $self = shift;
@@ -98,6 +111,13 @@ sub socket1 {
 	return $self->_resolve_state(0);
 }
 
+=head2 socket2
+
+Sets new state of Socket 2 (if was specified)
+returns current state of Socket 2
+
+=cut
+
 sub socket2 {
 	my $self = shift;
 	my $control = shift;
@@ -107,6 +127,13 @@ sub socket2 {
 	return $self->_resolve_state(1);
 }
 
+=head2 socket3
+
+Sets new state of Socket 3 (if was specified)
+returns current state of Socket 3
+
+=cut
+
 sub socket3 {
 	my $self = shift;
 	my $control = shift;
@@ -115,6 +142,13 @@ sub socket3 {
 	}
 	return $self->_resolve_state(2);
 }
+
+=head2 socket4
+
+Sets new state of Socket 4 (if was specified)
+returns current state of Socket 4
+
+=cut
 
 sub socket4 {
 	my $self = shift;
